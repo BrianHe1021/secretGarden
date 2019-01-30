@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.oregonstate.secretgarden.mapper.themeMapper">
+    <resultMap id="BaseResultMap" type="edu.oregonstate.secretgarden.model.Theme">
+        <id column="themeId" jdbcType="INTEGER" property="themeid"/>
+        <result column="themeName" jdbcType="VARCHAR" property="themename"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    themeId, themeName
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from theme
+        where themeId = #{themeid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from theme
+    where themeId = #{themeid,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="edu.oregonstate.secretgarden.model.Theme">
+    insert into theme (themeName)
+    values ( #{themename,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="edu.oregonstate.secretgarden.model.Theme">
+        insert into theme
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="themeid != null">
+                themeId,
+            </if>
+            <if test="themename != null">
+                themeName,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="themeid != null">
+                #{themeid,jdbcType=INTEGER},
+            </if>
+            <if test="themename != null">
+                #{themename,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.oregonstate.secretgarden.model.Theme">
+        update theme
+        <set>
+            <if test="themename != null">
+                themeName = #{themename,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where themeId = #{themeid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.oregonstate.secretgarden.model.Theme">
+    update theme
+    set themeName = #{themename,jdbcType=VARCHAR}
+    where themeId = #{themeid,jdbcType=INTEGER}
+  </update>
+</mapper>

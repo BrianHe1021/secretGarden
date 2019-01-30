@@ -1,4 +1,4 @@
-package edu.oreongstate.secretgarden;
+package edu.oregonstate.secretgarden;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

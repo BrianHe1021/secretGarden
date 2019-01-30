@@ -1,4 +1,4 @@
-package edu.oreongstate.secretgarden.service;
+package edu.oregonstate.secretgarden.service;
 
 public interface BaseService<Object, ObjectKey> {
 

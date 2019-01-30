@@ -15,7 +15,7 @@
 
         <!-- connect the databse -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/testData?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://localhost:3306/secretgarden?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"
                         userId="root"
                         password="root">
         </jdbcConnection>
@@ -25,7 +25,7 @@
         </javaTypeResolver>
 
         <!-- model  -->
-        <javaModelGenerator targetPackage="edu.oregonstate.errands.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="edu.oregonstate.secretgarden.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -36,7 +36,7 @@
         </sqlMapGenerator>
 
         <!-- mybatis3 mapper interface -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.oregonstate.errands.mapper"  targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.oregonstate.secretgarden.mapper"  targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
@@ -54,7 +54,22 @@
                <!--selectByExampleQueryId="false">-->
         <!--</table>-->
 
-        <table schema="errands" tableName="user_order" domainObjectName="UserOrder"
+        <table schema="secretgarden" tableName="user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="secretgarden" tableName="post" domainObjectName="Post"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="secretgarden" tableName="reply" domainObjectName="Reply"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <table schema="secretgarden" tableName="theme" domainObjectName="theme"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

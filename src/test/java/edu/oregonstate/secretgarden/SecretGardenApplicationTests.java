@@ -1,4 +1,4 @@
-package edu.oreongstate.secretgarden;
+package edu.oregonstate.secretgarden;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
