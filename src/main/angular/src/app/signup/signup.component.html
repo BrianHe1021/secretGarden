@@ -1,0 +1,49 @@
+<form class="form-signup col-6" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <h1 class="h3 mb-3 font-weight-normal text-light">Sign up</h1>
+
+  <div class="form-label-group">
+    <input type="email" id="signUpemail" formControlName="email" class="form-control"
+           placeholder="Enter your email address" required="" autofocus=""
+           [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+    <label for="signUpemail">Enter your email address</label>
+
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">Email is required</div>
+      <div *ngIf="f.email.errors.pattern">The format of email is wrong</div>
+    </div>
+
+  </div>
+
+  <div class="form-label-group">
+    <input type="username" id="signUpusername" formControlName="username" class="form-control"
+           placeholder="Enter your username" required=""
+           autofocus="" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+    <label for="signUpusername">Enter your username</label>
+
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+
+  </div>
+
+  <div class="form-label-group">
+    <input type="password" id="signUppassword" formControlName="password" class="form-control"
+           placeholder="Enter your password" required=""
+           autofocus="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <label for="signUppassword">Enter your password</label>
+
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+
+  </div>
+
+  <p class="text-light text-left">By clicking Get Started, you agree to our <a href="#">Terms, Data
+    Policy and Cookies Policy</a>. You may receive notifications from us.</p>
+
+  <div class="form-label-group">
+    <button class="btn btn-lg btn-secondary btn-block">Get Started</button>
+  </div>
+
+</form>
