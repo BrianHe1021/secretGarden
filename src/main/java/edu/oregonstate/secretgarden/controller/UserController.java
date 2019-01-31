@@ -41,13 +41,14 @@ public class UserController {
     @RequestMapping("/register")
     public boolean register(String username, String password, String email) {
 
-        User user = new User();
-        user.setUsername(username);
-        // hash password
-        user.setPassword(String.valueOf(password.hashCode()));
-        user.setEmail(email);
-
         try {
+            User user = new User();
+            user.setUsername(username);
+            // hash password
+            user.setPassword(String.valueOf(password.hashCode()));
+            user.setEmail(email);
+
+
             return userService.insert(user) == 1;
         } catch (Exception e) {
             return false;
