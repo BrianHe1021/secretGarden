@@ -3,8 +3,10 @@ package edu.oregonstate.secretgarden.mapper;
 import edu.oregonstate.secretgarden.model.Theme;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
-public interface themeMapper {
+public interface ThemeMapper {
     int deleteByPrimaryKey(Integer themeid);
 
     int insert(Theme record);
@@ -16,4 +18,6 @@ public interface themeMapper {
     int updateByPrimaryKeySelective(Theme record);
 
     int updateByPrimaryKey(Theme record);
+
+    List<Theme> getAll();
 }

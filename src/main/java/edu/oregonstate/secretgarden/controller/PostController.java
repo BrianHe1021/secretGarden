@@ -30,15 +30,16 @@ public class PostController {
     @RequestMapping("/create")
     public Boolean createPost(int themeId, String title, String message, int userId, String postName) {
 
-        Post post = new Post();
-        post.setMessage(message);
-        post.setPostname(postName);
-        post.setUserid(userId);
-        post.setThemeid(themeId);
-        post.setTitle(title);
-        post.setPosttime(new Date());
-
         try {
+
+            Post post = new Post();
+            post.setMessage(message);
+            post.setPostname(postName);
+            post.setUserid(userId);
+            post.setThemeid(themeId);
+            post.setTitle(title);
+            post.setPosttime(new Date());
+
             return postService.insert(post) == 1;
         } catch (Exception e) {
             return false;
