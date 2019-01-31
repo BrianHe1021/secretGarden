@@ -22,4 +22,6 @@ public interface PostMapper {
     List<Post>  getAllPosts();
 
     List<Post> getThemePosts(int themeId);
+
+    List<Post> getUserPosts(int userId);
 }

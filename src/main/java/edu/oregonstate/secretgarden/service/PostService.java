@@ -14,4 +14,6 @@ public interface PostService extends BaseService<Post, Integer> {
     List<Post> getAll();
 
     List<Post> getThemePosts(int themeId);
+
+    List<Post> getUserPosts(int userId);
 }

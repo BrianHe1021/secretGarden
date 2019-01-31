@@ -138,4 +138,11 @@
         from post
         where themeId = #{themeid,jdbcType=INTEGER}
     </select>
+
+    <select id="getUserPosts" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from post
+        where userId = #{userid,jdbcType=INTEGER}
+    </select>
 </mapper>

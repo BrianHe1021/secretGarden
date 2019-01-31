@@ -5,6 +5,8 @@ public class Theme extends BaseModelObject {
 
     private String themename;
 
+    private Integer postnum = 0;
+
     public Integer getThemeid() {
         return themeid;
     }
@@ -19,5 +21,14 @@ public class Theme extends BaseModelObject {
 
     public void setThemename(String themename) {
         this.themename = themename == null ? null : themename.trim();
+    }
+
+
+    public Integer getPostnum() {
+        return postnum;
+    }
+
+    public void setPostnum(Integer postnum) {
+        this.postnum = postnum;
     }
 }

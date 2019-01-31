@@ -53,4 +53,9 @@ public class PostServiceImpl implements PostService {
     public List<Post> getThemePosts(int themeId) {
         return postMapper.getThemePosts(themeId);
     }
+
+    @Override
+    public List<Post> getUserPosts(int userId) {
+        return postMapper.getUserPosts(userId);
+    }
 }

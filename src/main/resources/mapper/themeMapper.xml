@@ -4,9 +4,10 @@
     <resultMap id="BaseResultMap" type="edu.oregonstate.secretgarden.model.Theme">
         <id column="themeId" jdbcType="INTEGER" property="themeid"/>
         <result column="themeName" jdbcType="VARCHAR" property="themename"/>
+        <result column="postNum" jdbcType="VARCHAR" property="postnum"/>
     </resultMap>
     <sql id="Base_Column_List">
-    themeId, themeName
+    themeId, themeName, postNum
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -19,8 +20,8 @@
     where themeId = #{themeid,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="edu.oregonstate.secretgarden.model.Theme">
-    insert into theme (themeName)
-    values ( #{themename,jdbcType=VARCHAR})
+    insert into theme (themeName,postNum)
+    values ( #{themename,jdbcType=VARCHAR}, #{postnum,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="edu.oregonstate.secretgarden.model.Theme">
         insert into theme
@@ -31,6 +32,9 @@
             <if test="themename != null">
                 themeName,
             </if>
+            <if test="postnum != null">
+                postNum,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="themeid != null">
@@ -38,6 +42,9 @@
             </if>
             <if test="themename != null">
                 #{themename,jdbcType=VARCHAR},
+            </if>
+            <if test="postnum != null">
+                #{postnum,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -47,12 +54,16 @@
             <if test="themename != null">
                 themeName = #{themename,jdbcType=VARCHAR},
             </if>
+            <if test="postnum != null">
+                postNum = #{postnum,jdbcType=INTEGER},
+            </if>
         </set>
         where themeId = #{themeid,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="edu.oregonstate.secretgarden.model.Theme">
     update theme
-    set themeName = #{themename,jdbcType=VARCHAR}
+    set themeName = #{themename,jdbcType=VARCHAR},
+      postNum = #{postnum,jdbcType=INTEGER}
     where themeId = #{themeid,jdbcType=INTEGER}
   </update>
     <select id="getAll" resultMap="BaseResultMap">

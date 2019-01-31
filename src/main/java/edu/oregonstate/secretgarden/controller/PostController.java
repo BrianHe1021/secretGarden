@@ -1,7 +1,9 @@
 package edu.oregonstate.secretgarden.controller;
 
 import edu.oregonstate.secretgarden.model.Post;
+import edu.oregonstate.secretgarden.model.Theme;
 import edu.oregonstate.secretgarden.service.PostService;
+import edu.oregonstate.secretgarden.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +24,12 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
+    private final ThemeService themeService;
 
     @Autowired
-    public PostController(PostService postService) {
+    public PostController(PostService postService, ThemeService themeService) {
         this.postService = postService;
+        this.themeService = themeService;
     }
 
     @RequestMapping("/create")
@@ -41,7 +45,13 @@ public class PostController {
             post.setTitle(title);
             post.setPosttime(new Date());
 
+            // update the postNumber in theme
+            Theme theme = themeService.selectByPrimaryKey(themeId);
+            theme.setPostnum(theme.getPostnum() + 1);
+            themeService.updateByPrimaryKey(theme);
+
             return postService.insert(post) == 1;
+
         } catch (Exception e) {
             return false;
         }
@@ -56,4 +66,15 @@ public class PostController {
     public List<Post> getThemePosts(int themeId) {
         return postService.getThemePosts(themeId);
     }
+
+    @RequestMapping("getPostById")
+    public Post getPostById(int postId) {
+        return postService.selectByPrimaryKey(postId);
+    }
+
+    @RequestMapping("getUserPosts")
+    public List<Post> getUserPosts(int userId) {
+        return postService.getThemePosts(userId);
+    }
+
 }
