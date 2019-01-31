@@ -6,6 +6,8 @@ import edu.oregonstate.secretgarden.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author: Chendi Zhang
  * @date: 2019-01-30
@@ -40,5 +42,15 @@ public class PostServiceImpl implements PostService {
     @Override
     public int deleteByPrimaryKey(Integer integer) {
         return postMapper.deleteByPrimaryKey(integer);
+    }
+
+    @Override
+    public List<Post> getAll() {
+        return postMapper.getAllPosts();
+    }
+
+    @Override
+    public List<Post> getThemePosts(int themeId) {
+        return postMapper.getThemePosts(themeId);
     }
 }

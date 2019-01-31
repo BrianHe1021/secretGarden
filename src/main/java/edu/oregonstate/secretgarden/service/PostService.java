@@ -2,6 +2,8 @@ package edu.oregonstate.secretgarden.service;
 
 import edu.oregonstate.secretgarden.model.Post;
 
+import java.util.List;
+
 /**
  * @author: Chendi Zhang
  * @date: 2019-01-30
@@ -9,4 +11,7 @@ import edu.oregonstate.secretgarden.model.Post;
  **/
 
 public interface PostService extends BaseService<Post, Integer> {
+    List<Post> getAll();
+
+    List<Post> getThemePosts(int themeId);
 }

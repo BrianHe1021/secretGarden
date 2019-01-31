@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: Chendi Zhang
@@ -17,7 +18,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/post")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class PostController {
 
     private final PostService postService;
@@ -44,5 +45,15 @@ public class PostController {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @RequestMapping("getAll")
+    public List<Post> getAllPosts() {
+        return postService.getAll();
+    }
+
+    @RequestMapping("getThemePosts")
+    public List<Post> getThemePosts(int themeId) {
+        return postService.getThemePosts(themeId);
     }
 }

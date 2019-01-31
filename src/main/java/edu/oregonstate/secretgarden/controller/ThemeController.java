@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/theme")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class ThemeController {
 
     private final ThemeService themeService;
@@ -27,8 +27,8 @@ public class ThemeController {
         this.themeService = themeService;
     }
 
-    @RequestMapping
-    public List<Theme> getAllTheme() {
+    @RequestMapping("/getAll")
+    public List<Theme> getAllThemes() {
         try {
             return themeService.getAllThemes();
         } catch (Exception e) {

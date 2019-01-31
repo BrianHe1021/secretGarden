@@ -124,5 +124,18 @@
       postTime = #{posttime,jdbcType=TIMESTAMP},
       replyNum = #{replynum,jdbcType=INTEGER}
     where postId = #{postid,jdbcType=INTEGER}
-  </update>
+    </update>
+
+    <select id="getAllPosts" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from post
+    </select>
+
+    <select id="getThemePosts" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from post
+        where themeId = #{themeid,jdbcType=INTEGER}
+    </select>
 </mapper>
