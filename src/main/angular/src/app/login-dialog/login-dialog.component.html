@@ -1,0 +1,14 @@
+<h2 mat-dialog-title class="text-center">Log in</h2>
+
+<mat-dialog-content class="text-center">
+  <p *ngIf="loginResult">Log in success!</p>
+  <p *ngIf="loginResult">If not navigate, check the button.</p>
+  <p *ngIf="!loginResult">invalid username or password!</p>
+</mat-dialog-content>
+
+<div class="row">
+  <div class="col text-center">
+    <button class="btn btn-info" *ngIf="!loginResult" (click)="close()">Confirm</button>
+    <button class="btn btn-info" *ngIf="loginResult" (click)="getin()">Get in!</button>
+  </div>
+</div>

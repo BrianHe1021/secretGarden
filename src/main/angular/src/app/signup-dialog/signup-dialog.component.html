@@ -1,0 +1,14 @@
+<h2 mat-dialog-title class="text-center">Sign Up</h2>
+
+<mat-dialog-content class="text-center">
+  <p *ngIf="signupResult">Sign up success!</p>
+  <p *ngIf="!signupResult">This email is registered!</p>
+</mat-dialog-content>
+
+
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-info" (click)="close()">Confirm</button>
+    </div>
+  </div>
+

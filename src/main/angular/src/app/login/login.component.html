@@ -1,0 +1,19 @@
+<form class="form-inline" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group mr-2">
+    <a class="mr-2">Email:</a>
+    <input type="email" id="loginEmail" formControlName="email" class="form-control"
+           placeholder="Email address" required=""
+           autofocus="">
+  </div>
+
+  <div class="form-group">
+    <a class="mr-2">Password:</a>
+    <input type="password" id="loginPassword" formControlName="password" class="form-control mr-2"
+           placeholder="Password" required=""
+           autofocus="">
+  </div>
+
+  <button class="btn btn-info mr-2" (click)="openDialog()">Log in</button>
+
+</form>
