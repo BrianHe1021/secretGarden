@@ -18,6 +18,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { TeamPolicyComponent } from './team-policy/team-policy.component';
 import { ThemeListComponent } from './theme-list/theme-list.component';
+import { PostlistComponent } from './postlist/postlist.component';
 
 
 
@@ -32,7 +33,8 @@ import { ThemeListComponent } from './theme-list/theme-list.component';
     LoginDialogComponent,
     SignupDialogComponent,
     TeamPolicyComponent,
-    ThemeListComponent
+    ThemeListComponent,
+    PostlistComponent
   ],
   imports: [
     BrowserModule,

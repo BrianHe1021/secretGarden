@@ -60,6 +60,14 @@ export class LoginComponent implements OnInit {
     this.result = false;
   }
 
+  returnToNav(): boolean{
+    if(this.result && this.submitted){
+      return true;
+    }else {
+      return false;
+    };
+  }
+
   openLoginDialog():void {
 
     const dialogConfig = new MatDialogConfig();

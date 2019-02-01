@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {first} from "rxjs/operators";
 import {UserService} from "../_services";
 import {User} from "../_models/user";
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-navbar',
@@ -10,21 +11,23 @@ import {User} from "../_models/user";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  currentUser: User;
+  currentUsername: string;
   currentUserID: string;
   logged = false;
+
 
   constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
-    this.currentUserID = localStorage.getItem('currentUserID');
 
-    if (this.currentUserID != '-1') {
+    this.currentUserID = localStorage.getItem('currentUserID');
+    console.log(this.currentUserID);
+
+    if (this.currentUserID != null ) {
       this.logged = true;
-      this.userService.getUerByuserid(this.currentUserID).pipe(first()).subscribe(user => {
-        this.currentUser = user;
-        //console.log(this.currentUser);
+      this.userService.getUerByuserid(this.currentUserID).pipe(first()).subscribe(result => {
+        this.currentUsername = result.userName;
       });
     };
   }

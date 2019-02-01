@@ -11,22 +11,23 @@
           Secret Garden
         </a>
 
-          <a class="nav-link" nglink='/themelist'> View All theme</a>
+        <a class="nav-link" routerLink="/themelist"> View All theme</a>
       </div>
-        <div *ngIf="!logged">
-          <app-login></app-login>
+
+      <div *ngIf="!logged">
+        <app-login></app-login>
+      </div>
+
+      <div class="nav-item dropdown" *ngIf="logged">
+        <button class=" btn dropdown-toggle text-primary" id="dropdownMenuButton" type="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{currentUsername}}
+        </button>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item text-dark" routerLink="/teampolicy">Edit Profile</a>
+          <a class="dropdown-item text-dark" (click)="userLogout()">Log Out</a>
         </div>
-
-        <div class="nav-item dropdown" *ngIf="logged">
-          <button class=" btn dropdown-toggle text-primary" id="dropdownMenuButton" type="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{currentUser.username}}
-          </button>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item text-dark" nglink='/teampolicy'>Edit Profile</a>
-            <a class="dropdown-item text-dark" (click)="userLogout()">Log Out</a>
-          </div>
 
       </div>
     </div>
