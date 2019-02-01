@@ -35,4 +35,15 @@ public class ThemeController {
             return null;
         }
     }
+
+    @RequestMapping("/create")
+    public boolean createTheme(String themeName) {
+        Theme theme = new Theme();
+        theme.setThemeName(themeName);
+        try {
+            return themeService.insert(theme) == 1;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

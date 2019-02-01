@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.oregonstate.secretgarden.mapper.ReplyMapper">
     <resultMap id="BaseResultMap" type="edu.oregonstate.secretgarden.model.Reply">
-        <id column="postId" jdbcType="INTEGER" property="postid"/>
-        <id column="layerNum" jdbcType="INTEGER" property="layernum"/>
-        <result column="userId" jdbcType="INTEGER" property="userid"/>
-        <result column="replyName" jdbcType="VARCHAR" property="replyname"/>
-        <result column="replyLayerNum" jdbcType="INTEGER" property="replylayernum"/>
+        <id column="postId" jdbcType="INTEGER" property="postId"/>
+        <id column="layerNum" jdbcType="INTEGER" property="layerNum"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="replyName" jdbcType="VARCHAR" property="replyName"/>
+        <result column="replyLayerNum" jdbcType="INTEGER" property="replyLayerNum"/>
         <result column="content" jdbcType="VARCHAR" property="content"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -17,38 +17,38 @@
         select
         <include refid="Base_Column_List"/>
         from reply
-        where postId = #{postid,jdbcType=INTEGER}
-        and layerNum = #{layernum,jdbcType=INTEGER}
+        where postId = #{postId,jdbcType=INTEGER}
+        and layerNum = #{layerNum,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="edu.oregonstate.secretgarden.model.ReplyKey">
     delete from reply
-    where postId = #{postid,jdbcType=INTEGER}
-      and layerNum = #{layernum,jdbcType=INTEGER}
+    where postId = #{postId,jdbcType=INTEGER}
+      and layerNum = #{layerNum,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="edu.oregonstate.secretgarden.model.Reply">
     insert into reply (postId, layerNum, userId, 
       replyName, replyLayerNum, content
       )
-    values (#{postid,jdbcType=INTEGER}, #{layernum,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
-      #{replyname,jdbcType=VARCHAR}, #{replylayernum,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}
+    values (#{postId,jdbcType=INTEGER}, #{layerNum,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
+      #{replyName,jdbcType=VARCHAR}, #{replyLayerNum,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}
       )
   </insert>
     <insert id="insertSelective" parameterType="edu.oregonstate.secretgarden.model.Reply">
         insert into reply
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="postid != null">
+            <if test="postId != null">
                 postId,
             </if>
-            <if test="layernum != null">
+            <if test="layerNum != null">
                 layerNum,
             </if>
-            <if test="userid != null">
+            <if test="userId != null">
                 userId,
             </if>
-            <if test="replyname != null">
+            <if test="replyName != null">
                 replyName,
             </if>
-            <if test="replylayernum != null">
+            <if test="replyLayerNum != null">
                 replyLayerNum,
             </if>
             <if test="content != null">
@@ -56,20 +56,20 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="postid != null">
-                #{postid,jdbcType=INTEGER},
+            <if test="postId != null">
+                #{postId,jdbcType=INTEGER},
             </if>
-            <if test="layernum != null">
-                #{layernum,jdbcType=INTEGER},
+            <if test="layerNum != null">
+                #{layerNum,jdbcType=INTEGER},
             </if>
-            <if test="userid != null">
-                #{userid,jdbcType=INTEGER},
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
             </if>
-            <if test="replyname != null">
-                #{replyname,jdbcType=VARCHAR},
+            <if test="replyName != null">
+                #{replyName,jdbcType=VARCHAR},
             </if>
-            <if test="replylayernum != null">
-                #{replylayernum,jdbcType=INTEGER},
+            <if test="replyLayerNum != null">
+                #{replyLayerNum,jdbcType=INTEGER},
             </if>
             <if test="content != null">
                 #{content,jdbcType=VARCHAR},
@@ -79,29 +79,29 @@
     <update id="updateByPrimaryKeySelective" parameterType="edu.oregonstate.secretgarden.model.Reply">
         update reply
         <set>
-            <if test="userid != null">
-                userId = #{userid,jdbcType=INTEGER},
+            <if test="userId != null">
+                userId = #{userId,jdbcType=INTEGER},
             </if>
-            <if test="replyname != null">
-                replyName = #{replyname,jdbcType=VARCHAR},
+            <if test="replyName != null">
+                replyName = #{replyName,jdbcType=VARCHAR},
             </if>
-            <if test="replylayernum != null">
-                replyLayerNum = #{replylayernum,jdbcType=INTEGER},
+            <if test="replyLayerNum != null">
+                replyLayerNum = #{replyLayerNum,jdbcType=INTEGER},
             </if>
             <if test="content != null">
                 content = #{content,jdbcType=VARCHAR},
             </if>
         </set>
-        where postId = #{postid,jdbcType=INTEGER}
-        and layerNum = #{layernum,jdbcType=INTEGER}
+        where postId = #{postId,jdbcType=INTEGER}
+        and layerNum = #{layerNum,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="edu.oregonstate.secretgarden.model.Reply">
     update reply
-    set userId = #{userid,jdbcType=INTEGER},
-      replyName = #{replyname,jdbcType=VARCHAR},
-      replyLayerNum = #{replylayernum,jdbcType=INTEGER},
+    set userId = #{userId,jdbcType=INTEGER},
+      replyName = #{replyName,jdbcType=VARCHAR},
+      replyLayerNum = #{replyLayerNum,jdbcType=INTEGER},
       content = #{content,jdbcType=VARCHAR}
-    where postId = #{postid,jdbcType=INTEGER}
-      and layerNum = #{layernum,jdbcType=INTEGER}
+    where postId = #{postId,jdbcType=INTEGER}
+      and layerNum = #{layerNum,jdbcType=INTEGER}
   </update>
 </mapper>

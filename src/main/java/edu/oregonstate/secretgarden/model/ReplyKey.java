@@ -1,23 +1,23 @@
 package edu.oregonstate.secretgarden.model;
 
 public class ReplyKey extends BaseModelObject {
-    private Integer postid;
+    private Integer postId;
 
-    private Integer layernum;
+    private Integer layerNum;
 
-    public Integer getPostid() {
-        return postid;
+    public Integer getPostId() {
+        return postId;
     }
 
-    public void setPostid(Integer postid) {
-        this.postid = postid;
+    public void setPostId(Integer postId) {
+        this.postId = postId;
     }
 
-    public Integer getLayernum() {
-        return layernum;
+    public Integer getLayerNum() {
+        return layerNum;
     }
 
-    public void setLayernum(Integer layernum) {
-        this.layernum = layernum;
+    public void setLayerNum(Integer layerNum) {
+        this.layerNum = layerNum;
     }
 }

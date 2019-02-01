@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.oregonstate.secretgarden.mapper.ThemeMapper">
     <resultMap id="BaseResultMap" type="edu.oregonstate.secretgarden.model.Theme">
-        <id column="themeId" jdbcType="INTEGER" property="themeid"/>
-        <result column="themeName" jdbcType="VARCHAR" property="themename"/>
-        <result column="postNum" jdbcType="VARCHAR" property="postnum"/>
+        <id column="themeId" jdbcType="INTEGER" property="themeId"/>
+        <result column="themeName" jdbcType="VARCHAR" property="themeName"/>
+        <result column="postNum" jdbcType="VARCHAR" property="postNum"/>
     </resultMap>
     <sql id="Base_Column_List">
     themeId, themeName, postNum
@@ -13,58 +13,58 @@
         select
         <include refid="Base_Column_List"/>
         from theme
-        where themeId = #{themeid,jdbcType=INTEGER}
+        where themeId = #{themeId,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from theme
-    where themeId = #{themeid,jdbcType=INTEGER}
+    where themeId = #{themeId,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="edu.oregonstate.secretgarden.model.Theme">
     insert into theme (themeName,postNum)
-    values ( #{themename,jdbcType=VARCHAR}, #{postnum,jdbcType=INTEGER})
+    values ( #{themeName,jdbcType=VARCHAR}, #{postNum,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="edu.oregonstate.secretgarden.model.Theme">
         insert into theme
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="themeid != null">
+            <if test="themeId != null">
                 themeId,
             </if>
-            <if test="themename != null">
+            <if test="themeName != null">
                 themeName,
             </if>
-            <if test="postnum != null">
+            <if test="postNum != null">
                 postNum,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="themeid != null">
-                #{themeid,jdbcType=INTEGER},
+            <if test="themeId != null">
+                #{themeId,jdbcType=INTEGER},
             </if>
-            <if test="themename != null">
-                #{themename,jdbcType=VARCHAR},
+            <if test="themeName != null">
+                #{themeName,jdbcType=VARCHAR},
             </if>
-            <if test="postnum != null">
-                #{postnum,jdbcType=INTEGER},
+            <if test="postNum != null">
+                #{postNum,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="edu.oregonstate.secretgarden.model.Theme">
         update theme
         <set>
-            <if test="themename != null">
-                themeName = #{themename,jdbcType=VARCHAR},
+            <if test="themeName != null">
+                themeName = #{themeName,jdbcType=VARCHAR},
             </if>
-            <if test="postnum != null">
-                postNum = #{postnum,jdbcType=INTEGER},
+            <if test="postNum != null">
+                postNum = #{postNum,jdbcType=INTEGER},
             </if>
         </set>
-        where themeId = #{themeid,jdbcType=INTEGER}
+        where themeId = #{themeId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="edu.oregonstate.secretgarden.model.Theme">
     update theme
-    set themeName = #{themename,jdbcType=VARCHAR},
-      postNum = #{postnum,jdbcType=INTEGER}
-    where themeId = #{themeid,jdbcType=INTEGER}
+    set themeName = #{themeName,jdbcType=VARCHAR},
+      postNum = #{postNum,jdbcType=INTEGER}
+    where themeId = #{themeId,jdbcType=INTEGER}
   </update>
     <select id="getAll" resultMap="BaseResultMap">
         select

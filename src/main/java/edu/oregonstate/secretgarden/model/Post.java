@@ -3,36 +3,36 @@ package edu.oregonstate.secretgarden.model;
 import java.util.Date;
 
 public class Post extends BaseModelObject {
-    private Integer postid;
+    private Integer postId;
 
-    private Integer themeid;
+    private Integer themeId;
 
     private String title;
 
     private String message;
 
-    private Integer userid;
+    private Integer userId;
 
-    private String postname;
+    private String postName;
 
-    private Date posttime;
+    private Date postTime;
 
-    private Integer replynum = 0;
+    private Integer replyNum = 0;
 
-    public Integer getPostid() {
-        return postid;
+    public Integer getPostId() {
+        return postId;
     }
 
-    public void setPostid(Integer postid) {
-        this.postid = postid;
+    public void setPostId(Integer postId) {
+        this.postId = postId;
     }
 
-    public Integer getThemeid() {
-        return themeid;
+    public Integer getThemeId() {
+        return themeId;
     }
 
-    public void setThemeid(Integer themeid) {
-        this.themeid = themeid;
+    public void setThemeId(Integer themeId) {
+        this.themeId = themeId;
     }
 
     public String getTitle() {
@@ -51,35 +51,35 @@ public class Post extends BaseModelObject {
         this.message = message == null ? null : message.trim();
     }
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getPostname() {
-        return postname;
+    public String getPostName() {
+        return postName;
     }
 
-    public void setPostname(String postname) {
-        this.postname = postname == null ? null : postname.trim();
+    public void setPostName(String postName) {
+        this.postName = postName == null ? null : postName.trim();
     }
 
-    public Date getPosttime() {
-        return posttime;
+    public Date getPostTime() {
+        return postTime;
     }
 
-    public void setPosttime(Date posttime) {
-        this.posttime = posttime;
+    public void setPostTime(Date postTime) {
+        this.postTime = postTime;
     }
 
-    public Integer getReplynum() {
-        return replynum;
+    public Integer getReplyNum() {
+        return replyNum;
     }
 
-    public void setReplynum(Integer replynum) {
-        this.replynum = replynum;
+    public void setReplyNum(Integer replyNum) {
+        this.replyNum = replyNum;
     }
 }

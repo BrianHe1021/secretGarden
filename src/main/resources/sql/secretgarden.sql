@@ -22,7 +22,7 @@ CREATE TABLE `user` (
 CREATE TABLE `theme` (
   `themeId` int(100) NOT NULL AUTO_INCREMENT,
   `themeName` varchar(50) NOT NULL,
-  `postNum` int(255) NOT NULL DEFAULT 0;
+  `postNum` int(255) NOT NULL DEFAULT 0
   PRIMARY KEY (`themeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
