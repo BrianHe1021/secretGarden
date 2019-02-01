@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 cd $(dirname $0)
 cd ../src/main/angular
 echo -e "\033[44;37;5m Build Begin \033[0m"
