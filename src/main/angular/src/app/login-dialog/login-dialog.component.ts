@@ -24,11 +24,13 @@ export class LoginDialogComponent implements OnInit {
 
   close() {
     this.dialogRef.close();
+    window.location.reload();
   }
 
   getin() {
     this.dialogRef.close();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/themelist']);
+    window.location.reload();
   }
 
 }

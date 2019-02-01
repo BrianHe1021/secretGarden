@@ -1,18 +1,34 @@
 <nav class="navbar navbar-expand-xl navbar-light bg-light">
+  <div class="navcontainer">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <div class="collapse navbar-collapse " id="navbarCollapse">
+      <div class="row mr-auto">
+        <a class="navbar-brand" href="#">
+          <img alt="Secret Garden" src="../favicon.ico">
+          Secret Garden
+        </a>
 
-  <div class="collapse navbar-collapse " id="navbarCollapse">
-    <!--href and the logo need to be add-->
-    <a class="navbar-brand mr-auto" href="#">
-      <img alt="Secret Garden" src="../favicon.ico">
-      Secret Garden
-    </a>
+          <a class="nav-link" nglink='/themelist'> View All theme</a>
+      </div>
+        <div *ngIf="!logged">
+          <app-login></app-login>
+        </div>
 
-<app-login></app-login>
+        <div class="nav-item dropdown" *ngIf="logged">
+          <button class=" btn dropdown-toggle text-primary" id="dropdownMenuButton" type="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{currentUser.username}}
+          </button>
 
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item text-dark" nglink='/teampolicy'>Edit Profile</a>
+            <a class="dropdown-item text-dark" (click)="userLogout()">Log Out</a>
+          </div>
+
+      </div>
+    </div>
   </div>
-
 </nav>

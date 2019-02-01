@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   result = false;
-  currentUsername: string;
+  currentUserID: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,9 +46,10 @@ export class LoginComponent implements OnInit {
 
           if(data != '-1'){
             this.result = true;
-            this.currentUsername = data;
-            localStorage.setItem('currentUsername', JSON.stringify(this.currentUsername));
+            this.currentUserID = data;
+            localStorage.setItem('currentUserID', JSON.stringify(this.currentUserID));
           };
+
 
           this.openLoginDialog();
         }, error => {
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
     this.result = false;
   }
 
-  openLoginDialog() {
+  openLoginDialog():void {
 
     const dialogConfig = new MatDialogConfig();
 

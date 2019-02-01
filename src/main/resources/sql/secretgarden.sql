@@ -13,7 +13,7 @@ CREATE TABLE `user` (
   `userId` int(100) NOT NULL AUTO_INCREMENT,
   `userName` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(320) NOT NULL unique ,
+  `email` varchar(255) NOT NULL unique ,
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -32,7 +32,7 @@ CREATE TABLE `post` (
   `postId` int(100) NOT NULL AUTO_INCREMENT,
   `themeId` int(100) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `message`  varchar(2048) NOT NULL,
+  `message`  varchar(255) NOT NULL,
   `userId` int(100) NOT NULL,
   `postName` varchar(50) NOT null,
   `postTime` timestamp NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `reply` (
   `userId` int(100) NOT NULL,
   `replyName`  varchar(40) NOT NULL,
   `replyLayerNum` int(100) DEFAULT 0 NOT NULL,
-  `content` varchar(1024) NOT NULL,
+  `content` varchar(255) NOT NULL,
 CONSTRAINT PK_PL PRIMARY KEY (`postId`,`layerNum`),
 FOREIGN KEY fk_pId(postId) REFERENCES `post`(postId),
 FOREIGN KEY fk_uId_R(userId) REFERENCES `user`(userId)
