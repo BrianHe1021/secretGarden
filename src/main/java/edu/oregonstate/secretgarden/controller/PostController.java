@@ -39,15 +39,15 @@ public class PostController {
 
             Post post = new Post();
             post.setMessage(message);
-            post.setPostname(postName);
-            post.setUserid(userId);
-            post.setThemeid(themeId);
+            post.setPostName(postName);
+            post.setUserId(userId);
+            post.setThemeId(themeId);
             post.setTitle(title);
-            post.setPosttime(new Date());
+            post.setPostTime(new Date());
 
             // update the postNumber in theme
             Theme theme = themeService.selectByPrimaryKey(themeId);
-            theme.setPostnum(theme.getPostnum() + 1);
+            theme.setPostNum(theme.getPostNum() + 1);
             themeService.updateByPrimaryKey(theme);
 
             return postService.insert(post) == 1;

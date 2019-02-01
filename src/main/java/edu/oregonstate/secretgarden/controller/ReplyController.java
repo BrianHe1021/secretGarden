@@ -37,8 +37,8 @@ public class ReplyController {
         try {
             // update the replyNumber in post
             Post post = postService.selectByPrimaryKey(postId);
-            int totalReplies = post.getReplynum();
-            post.setReplynum(totalReplies + 1);
+            int totalReplies = post.getReplyNum();
+            post.setReplyNum(totalReplies + 1);
 
             if (replyLayerNum > totalReplies) {
                 return false; // reply num error
@@ -46,11 +46,11 @@ public class ReplyController {
 
             Reply reply = new Reply();
             reply.setContent(content);
-            reply.setPostid(postId);
-            reply.setLayernum(totalReplies + 1);
-            reply.setReplylayernum(replyLayerNum);
-            reply.setUserid(userId);
-            reply.setReplyname(replyName);
+            reply.setPostId(postId);
+            reply.setLayerNum(totalReplies + 1);
+            reply.setReplyLayerNum(replyLayerNum);
+            reply.setUserId(userId);
+            reply.setReplyName(replyName);
 
             postService.updateByPrimaryKey(post);
 

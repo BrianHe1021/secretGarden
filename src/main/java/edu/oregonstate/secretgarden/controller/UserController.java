@@ -32,18 +32,18 @@ public class UserController {
             User user = userService.getUserByEmail(email);
             // hash password
             password = String.valueOf(password.hashCode());
-            return password.equals(user.getPassword()) ? user.getUserid() : -1;
+            return password.equals(user.getPassword()) ? user.getUserId() : -1;
         } catch (Exception e) {
             return -1;
         }
     }
 
     @RequestMapping("/register")
-    public boolean register(String username, String password, String email) {
+    public boolean register(String userName, String password, String email) {
 
         try {
             User user = new User();
-            user.setUsername(username);
+            user.setUserName(userName);
             // hash password
             user.setPassword(String.valueOf(password.hashCode()));
             user.setEmail(email);
@@ -57,8 +57,8 @@ public class UserController {
     }
 
     @RequestMapping("/getUserById")
-    public User getUserById(int userid) {
-        return userService.selectByPrimaryKey(userid);
+    public User getUserById(int userId) {
+        return userService.selectByPrimaryKey(userId);
     }
 
     @RequestMapping("/getUserByEmail")

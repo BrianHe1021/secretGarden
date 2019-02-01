@@ -1,34 +1,34 @@
 package edu.oregonstate.secretgarden.model;
 
 public class Theme extends BaseModelObject {
-    private Integer themeid;
+    private Integer themeId;
 
-    private String themename;
+    private String themeName;
 
-    private Integer postnum = 0;
+    private Integer postNum = 0;
 
-    public Integer getThemeid() {
-        return themeid;
+    public Integer getThemeId() {
+        return themeId;
     }
 
-    public void setThemeid(Integer themeid) {
-        this.themeid = themeid;
+    public void setThemeId(Integer themeId) {
+        this.themeId = themeId;
     }
 
-    public String getThemename() {
-        return themename;
+    public String getThemeName() {
+        return themeName;
     }
 
-    public void setThemename(String themename) {
-        this.themename = themename == null ? null : themename.trim();
+    public void setThemeName(String themeName) {
+        this.themeName = themeName == null ? null : themeName.trim();
     }
 
 
-    public Integer getPostnum() {
-        return postnum;
+    public Integer getPostNum() {
+        return postNum;
     }
 
-    public void setPostnum(Integer postnum) {
-        this.postnum = postnum;
+    public void setPostNum(Integer postNum) {
+        this.postNum = postNum;
     }
 }

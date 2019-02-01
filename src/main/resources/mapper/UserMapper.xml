@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.oregonstate.secretgarden.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="edu.oregonstate.secretgarden.model.User">
-        <id column="userId" jdbcType="INTEGER" property="userid"/>
-        <result column="userName" jdbcType="VARCHAR" property="username"/>
+        <id column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
     </resultMap>
@@ -14,25 +14,25 @@
         select
         <include refid="Base_Column_List"/>
         from user
-        where userId = #{userid,jdbcType=INTEGER}
+        where userId = #{userId,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
-    where userId = #{userid,jdbcType=INTEGER}
+    where userId = #{userId,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="edu.oregonstate.secretgarden.model.User">
     insert into user (userName, password,
       email)
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{email,jdbcType=VARCHAR})
   </insert>
     <insert id="insertSelective" parameterType="edu.oregonstate.secretgarden.model.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="userid != null">
+            <if test="userId != null">
                 userId,
             </if>
-            <if test="username != null">
+            <if test="userName != null">
                 userName,
             </if>
             <if test="password != null">
@@ -43,11 +43,11 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="userid != null">
-                #{userid,jdbcType=INTEGER},
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
             </if>
-            <if test="username != null">
-                #{username,jdbcType=VARCHAR},
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
             </if>
             <if test="password != null">
                 #{password,jdbcType=VARCHAR},
@@ -60,8 +60,8 @@
     <update id="updateByPrimaryKeySelective" parameterType="edu.oregonstate.secretgarden.model.User">
         update user
         <set>
-            <if test="username != null">
-                userName = #{username,jdbcType=VARCHAR},
+            <if test="userName != null">
+                userName = #{userName,jdbcType=VARCHAR},
             </if>
             <if test="password != null">
                 password = #{password,jdbcType=VARCHAR},
@@ -70,14 +70,14 @@
                 email = #{email,jdbcType=VARCHAR},
             </if>
         </set>
-        where userId = #{userid,jdbcType=INTEGER}
+        where userId = #{userId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="edu.oregonstate.secretgarden.model.User">
     update user
-    set userName = #{username,jdbcType=VARCHAR},
+    set userName = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR}
-    where userId = #{userid,jdbcType=INTEGER}
+    where userId = #{userId,jdbcType=INTEGER}
     </update>
     <select id="selectByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
         select

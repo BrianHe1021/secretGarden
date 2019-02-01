@@ -1,36 +1,36 @@
 package edu.oregonstate.secretgarden.model;
 
 public class Reply extends ReplyKey {
-    private Integer userid;
+    private Integer userId;
 
-    private String replyname;
+    private String replyName;
 
-    private Integer replylayernum;
+    private Integer replyLayerNum;
 
     private String content;
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getReplyname() {
-        return replyname;
+    public String getReplyName() {
+        return replyName;
     }
 
-    public void setReplyname(String replyname) {
-        this.replyname = replyname == null ? null : replyname.trim();
+    public void setReplyName(String replyName) {
+        this.replyName = replyName == null ? null : replyName.trim();
     }
 
-    public Integer getReplylayernum() {
-        return replylayernum;
+    public Integer getReplyLayerNum() {
+        return replyLayerNum;
     }
 
-    public void setReplylayernum(Integer replylayernum) {
-        this.replylayernum = replylayernum;
+    public void setReplyLayerNum(Integer replyLayerNum) {
+        this.replyLayerNum = replyLayerNum;
     }
 
     public String getContent() {
