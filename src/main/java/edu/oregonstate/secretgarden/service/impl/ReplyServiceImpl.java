@@ -7,6 +7,8 @@ import edu.oregonstate.secretgarden.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author: Chendi Zhang
  * @date: 2019-01-30
@@ -41,5 +43,10 @@ public class ReplyServiceImpl implements ReplyService {
     @Override
     public int deleteByPrimaryKey(ReplyKey replyKey) {
         return replyMapper.deleteByPrimaryKey(replyKey);
+    }
+
+    @Override
+    public List<Reply> getPostReplys(int postId) {
+        return replyMapper.getPostReplys(postId);
     }
 }

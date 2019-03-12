@@ -1,8 +1,10 @@
 package edu.oregonstate.secretgarden.controller;
 
 import edu.oregonstate.secretgarden.model.Post;
+import edu.oregonstate.secretgarden.model.PostReplys;
 import edu.oregonstate.secretgarden.model.Theme;
 import edu.oregonstate.secretgarden.service.PostService;
+import edu.oregonstate.secretgarden.service.ReplyService;
 import edu.oregonstate.secretgarden.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,11 +27,13 @@ public class PostController {
 
     private final PostService postService;
     private final ThemeService themeService;
+    private final ReplyService replyService;
 
     @Autowired
-    public PostController(PostService postService, ThemeService themeService) {
+    public PostController(PostService postService, ThemeService themeService, ReplyService replyService) {
         this.postService = postService;
         this.themeService = themeService;
+        this.replyService = replyService;
     }
 
     @RequestMapping("/create")
@@ -77,4 +81,18 @@ public class PostController {
         return postService.getThemePosts(userId);
     }
 
+    @RequestMapping("getPostReplyById")
+    public PostReplys getPostReplyById(int postId) {
+
+        PostReplys postReplys = new PostReplys();
+        try {
+            postReplys.setPost(getPostById(postId));
+            postReplys.setReplyList(replyService.getPostReplys(postId));
+        } catch (Exception e) {
+            return null;
+        }
+
+
+        return postReplys;
+    }
 }

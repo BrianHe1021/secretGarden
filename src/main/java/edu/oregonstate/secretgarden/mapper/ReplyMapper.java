@@ -4,6 +4,8 @@ import edu.oregonstate.secretgarden.model.Reply;
 import edu.oregonstate.secretgarden.model.ReplyKey;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface ReplyMapper {
     int deleteByPrimaryKey(ReplyKey key);
@@ -17,4 +19,6 @@ public interface ReplyMapper {
     int updateByPrimaryKeySelective(Reply record);
 
     int updateByPrimaryKey(Reply record);
+
+    List<Reply> getPostReplys(int postId);
 }

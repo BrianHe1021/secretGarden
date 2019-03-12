@@ -104,4 +104,10 @@
     where postId = #{postId,jdbcType=INTEGER}
       and layerNum = #{layerNum,jdbcType=INTEGER}
   </update>
+    <select id="getPostReplys" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from reply
+        where postId = #{postId,jdbcType=INTEGER}
+    </select>
 </mapper>
