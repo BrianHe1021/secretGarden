@@ -46,4 +46,10 @@ public class ThemeController {
             return false;
         }
     }
+
+    @RequestMapping("/getThemeById")
+    public Theme getThemeById(int themeId){
+        return themeService.selectByPrimaryKey(themeId);
+
+    }
 }
