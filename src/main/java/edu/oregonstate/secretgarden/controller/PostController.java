@@ -2,6 +2,7 @@ package edu.oregonstate.secretgarden.controller;
 
 import edu.oregonstate.secretgarden.model.Post;
 import edu.oregonstate.secretgarden.model.PostReplys;
+import edu.oregonstate.secretgarden.model.Reply;
 import edu.oregonstate.secretgarden.model.Theme;
 import edu.oregonstate.secretgarden.service.PostService;
 import edu.oregonstate.secretgarden.service.ReplyService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -61,27 +63,27 @@ public class PostController {
         }
     }
 
-    @RequestMapping("getAll")
+    @RequestMapping("/getAll")
     public List<Post> getAllPosts() {
         return postService.getAll();
     }
 
-    @RequestMapping("getThemePosts")
+    @RequestMapping("/getThemePosts")
     public List<Post> getThemePosts(int themeId) {
         return postService.getThemePosts(themeId);
     }
 
-    @RequestMapping("getPostById")
+    @RequestMapping("/getPostById")
     public Post getPostById(int postId) {
         return postService.selectByPrimaryKey(postId);
     }
 
-    @RequestMapping("getUserPosts")
+    @RequestMapping("/getUserPosts")
     public List<Post> getUserPosts(int userId) {
         return postService.getThemePosts(userId);
     }
 
-    @RequestMapping("getPostReplyById")
+    @RequestMapping("/getPostReplyById")
     public PostReplys getPostReplyById(int postId) {
 
         PostReplys postReplys = new PostReplys();
@@ -94,5 +96,17 @@ public class PostController {
 
 
         return postReplys;
+    }
+
+    @RequestMapping("/getReplysByPostId")
+    public List<Reply> getReplysByPostId(int postId) {
+        List<Reply> posts;
+        try {
+            posts = replyService.getPostReplys(postId);
+
+        } catch (Exception e) {
+            return null;
+        }
+        return posts;
     }
 }
