@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -80,7 +79,7 @@ public class PostController {
 
     @RequestMapping("/getUserPosts")
     public List<Post> getUserPosts(int userId) {
-        return postService.getThemePosts(userId);
+        return postService.getUserPosts(userId);
     }
 
     @RequestMapping("/getPostReplyById")
