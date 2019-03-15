@@ -1,0 +1,39 @@
+li {
+  display: flex;
+  border-bottom: 1px solid;
+  color: white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0px;
+}
+
+
+a,
+a:focus,
+a:hover {
+  color: mintcream;
+}
+
+.textColor{
+  color: mintcream;
+}
+
+.home-list-color {
+  background-color: inherit;
+}
+
+.flex-left {
+  flex: 5;
+}
+
+.flex-right {
+  width: 240px;
+  font-size: 14px;
+}
+
+.postContainer{
+  margin: 0 100px;
+  padding: 30px;
+  border-radius: 1%;
+}

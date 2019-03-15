@@ -22,12 +22,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
     this.currentUserID = localStorage.getItem('currentUserID');
-    console.log(this.currentUserID);
 
     if (this.currentUserID != null ) {
       this.logged = true;
       this.userService.getUerByuserid(this.currentUserID).pipe(first()).subscribe(result => {
         this.currentUsername = result.userName;
+        localStorage.setItem('currentUser', JSON.stringify(result));
       });
     };
   }

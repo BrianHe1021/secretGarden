@@ -15,13 +15,13 @@
   </div>
 
   <div class="form-label-group">
-    <input type="username" id="signUpusername" formControlName="username" class="form-control"
+    <input type="username" id="signUpusername" formControlName="userName" class="form-control"
            placeholder="Enter your username" required=""
-           autofocus="" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+           autofocus="" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
     <label for="signUpusername">Enter your username</label>
 
-    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-      <div *ngIf="f.username.errors.required">Username is required</div>
+    <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+      <div *ngIf="f.userName.errors.required">Username is required</div>
     </div>
 
   </div>

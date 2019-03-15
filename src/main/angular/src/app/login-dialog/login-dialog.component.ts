@@ -29,7 +29,6 @@ export class LoginDialogComponent implements OnInit {
 
   getin() {
     this.dialogRef.close();
-    this.router.navigate(['/themelist']);
     window.location.reload();
   }
 

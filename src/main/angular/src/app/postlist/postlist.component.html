@@ -1,28 +1,32 @@
 <div class="themeContainer">
-  <div class="mt-3">
-    <h5 class="textColor">
+  <div class="mt-3 row">
+    <h5 class="textColor mr-auto">
       <a routerLink="/home" class="font-weight-bolder"> Home </a>
       /
-      <a routerLink="/themlist" class="font-weight-bolder"> Theme </a>
+      <a routerLink="/themelist" class="font-weight-bolder"> Theme </a>
       /
-    <a routerLink="/themlist" class="font-weight-bolder"> Happy </a>
+      <a class="font-weight-bolder" *ngIf="currentTheme != null"> {{currentTheme.themeName}} </a>
     </h5>
+
+      <button class="btn btn-info mr-3" *ngIf="currentUserID!=null&&currentTheme != null" routerLink="/newpost/{{currentTheme.themeId}}">New Post</button>
+      <button class="btn btn-info mr-3 disabled" *ngIf="currentUserID==null" placement="top"
+              ngbPopover="You must log in to creat new post."
+              [openDelay]="300" [closeDelay]="800" triggers="mouseenter:mouseleave">New Post</button>
   </div>
 
   <ul class="list-group mt-auto">
 
     <li class="list-group-item home-list-color">
       <div class="flex-left">Title</div>
-      <div class="flex-right" class="list-child">Poster name</div>
+      <div class="flex-right" class="list-child">Info</div>
     </li>
 
-    <li class="list-group-item home-list-color">
+    <li class="list-group-item home-list-color" *ngFor="let post of postlist">
       <div class="flex-left">
-        <a routerLink="/home"> Happy to test ! </a>
+        <a routerLink="/post/{{post.postId}}">{{post.title}}</a>
       </div>
-
       <div class="flex-right" class="list-child">
-        <div> tester </div>
+        posted by {{post.postName}} at {{post.postTime.slice(0,10)}}
       </div>
     </li>
 

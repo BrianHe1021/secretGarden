@@ -1,0 +1,90 @@
+<div class="themeContainer">
+  <div class="mt-3">
+    <h5 class="textColor mr-auto">
+      <a routerLink="/home" class="font-weight-bolder"> Home </a>
+      /
+      <a routerLink="/themelist" class="font-weight-bolder"> Theme </a>
+      /
+      <a routerLink="/postlist/{{currentTheme.themeId}}" class="font-weight-bolder" *ngIf="currentTheme != null">
+        {{currentTheme.themeName}} </a>
+      /
+      <a class="font-weight-bolder" *ngIf="currentPost != null"> {{currentPost.title}} </a>
+    </h5>
+  </div>
+
+  <div id="thread" class="mt-3">
+    <div class="reply">
+      <div class="reply-header">Post</div>
+      <div class="reply-container">
+        <div class='reply-signature' *ngIf="currentPost != null">
+          <img class='avatar' src='https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png'>
+          <br> {{ currentPost.postName }}
+          <br> {{ currentPost.postTime.slice(0,10) }}
+        </div>
+        <div class='reply-body'>
+          <div id="reply-title" *ngIf="currentPost != null">{{ currentPost.title }}</div>
+          <hr/>
+          <div class="reply-message" *ngIf="currentPost != null" [innerHTML]="currentPost.message | sanitizeHtml"></div>
+        </div>
+        <div class="reply-options">
+          <i class="fa fa-reply option-icon" aria-hidden="true" *ngIf="currentPost != null" data-toggle="modal" data-target="#exampleModal3"></i>
+        </div>
+      </div>
+    </div>
+    <div *ngFor='let reply of replylist' class="reply">
+      <div class="reply-header">Reply  to  layer  {{ reply.replyLayerNum}}</div>
+      <div class="reply-container">
+        <div class='reply-signature'>
+          <img class='avatar' src='https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png'>
+          <br> {{ reply.replyName }}
+        </div>
+        <div class='reply-body'>
+          <span class="reply-message" [innerHTML]="reply.content | sanitizeHtml"></span>
+        </div>
+        <div class="reply-options">
+          <i class="fa fa-reply option-icon" aria-hidden="true" *ngIf="currentPost != null" data-toggle="modal" data-target="#exampleModal3"></i>
+        </div>
+      </div>
+    </div>
+    <br>
+</div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="modal-quote" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-quote">New Reply</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="NewReplyForm">
+          <div class="form-group">
+            <label class="text-dark">Content:</label>
+            <textarea type="text" class="form-control" formControlName="content" required="" autofocus="" [ngClass]="{ 'is-invalid': submitted && f.content.errors }"></textarea>
+
+          <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+            <div *ngIf="f.content.errors.required">Content is required.</div>
+          </div>
+          </div>
+
+          <div class="form-group">
+            <label class="text-dark">Reply Name:</label>
+            <input type="text" class="form-control" formControlName="replyName" required="" autofocus="" [ngClass]="{ 'is-invalid': submitted && f.replyName.errors }">
+
+            <div *ngIf="submitted && f.replyName.errors" class="invalid-feedback">
+              <div *ngIf="f.replyName.errors.required">Reply Name is required.</div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-info" (click)="this.submitReply()">Reply</button>
+      </div>
+    </div>
+  </div>
+</div>

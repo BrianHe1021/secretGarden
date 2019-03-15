@@ -1,0 +1,32 @@
+<div class="postContainer">
+  <div class="mt-3 row">
+    <h5 class="textColor mr-auto">
+      <a class="font-weight-bolder"> My Post </a>
+    </h5>
+  </div>
+
+  <ul class="list-group mt-auto" *ngIf="postlist.length != 0">
+
+    <li class="list-group-item home-list-color" >
+      <div class="flex-left">Title</div>
+      <div class="flex-right" class="list-child">Info</div>
+    </li>
+
+    <li class="list-group-item home-list-color" *ngFor="let post of postlist">
+      <div class="flex-left">
+        <a routerLink="/post/{{post.postId}}">{{post.title}}</a>
+      </div>
+      <div class="flex-right" class="list-child">
+        posted at {{post.postTime.slice(0,10)}}
+      </div>
+    </li>
+
+  </ul>
+
+  <ul class="text-light mt-auto" *ngIf="postlist.length == 0">
+      <p *ngIf="currentUserID != null">You haven't post anything yet.</p>
+      <p *ngIf="currentUserID == null">You must log in first.</p>
+  </ul>
+
+</div>
+

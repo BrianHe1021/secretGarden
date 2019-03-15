@@ -11,66 +11,16 @@
 
     <li class="list-group-item home-list-color">
       <div class="flex-left">Topic</div>
-      <div class="flex-right" class="list-child">Total posts</div>
+      <div class="flex-right" class="list-child">Total post</div>
     </li>
 
-    <li class="list-group-item home-list-color">
+    <li class="list-group-item home-list-color" *ngFor="let theme of themeList">
       <div class="flex-left">
-        <a routerLink="/postlist"> Happy </a>
+        <a routerLink="/postlist/{{theme.themeId}}"> {{theme.themeName}} </a>
       </div>
 
       <div class="flex-right" class="list-child">
-        <div> 1 </div>
-      </div>
-    </li>
-
-    <li class="list-group-item home-list-color">
-      <div class="flex-left">
-        <a routerLink="/teampolicy" > Secret </a>
-      </div>
-
-      <div class="flex-right" class="list-child">
-        <div> 0 </div>
-      </div>
-    </li>
-
-    <li class="list-group-item home-list-color">
-      <div class="flex-left">
-        <a routerLink="/teampolicy" > Interests </a>
-      </div>
-
-      <div class="flex-right" class="list-child">
-        <div> 0 </div>
-      </div>
-    </li>
-
-    <li class="list-group-item home-list-color">
-      <div class="flex-left">
-        <a routerLink="/teampolicy" > Sadness </a>
-      </div>
-
-      <div class="flex-right" class="list-child">
-        <div> 0 </div>
-      </div>
-    </li>
-
-    <li class="list-group-item home-list-color">
-      <div class="flex-left">
-        <a routerLink="/teampolicy" > Fearness </a>
-      </div>
-
-      <div class="flex-right" class="list-child">
-        <div> 0 </div>
-      </div>
-    </li>
-
-    <li class="list-group-item home-list-color">
-      <div class="flex-left">
-        <a routerLink="/teampolicy" > complaints </a>
-      </div>
-
-      <div class="flex-right" class="list-child">
-        <div> 0 </div>
+        <div> {{theme.postNum}} </div>
       </div>
     </li>
 
