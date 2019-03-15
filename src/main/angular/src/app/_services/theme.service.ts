@@ -11,15 +11,15 @@ export class ThemeService {
   }
 
   getAllTheme(){
-    return this.http.get<Theme[]>("http://localhost:8080/theme/getAll");
+    return this.http.get<Theme[]>("http://52.89.73.163:8080/theme/getAll");
   }
 
   getPostsByThemeId(themeId:string){
-    return this.http.get<Post[]>("http://localhost:8080/post/getThemePosts?themeId=" + themeId);
+    return this.http.get<Post[]>("http://52.89.73.163:8080/post/getThemePosts?themeId=" + themeId);
   }
 
   getThemeByThemeId(themeId: string){
-    return this.http.get<Theme>("http://localhost:8080/theme/getThemeById?themeId=" + themeId);
+    return this.http.get<Theme>("http://52.89.73.163:8080/theme/getThemeById?themeId=" + themeId);
   }
 
 }

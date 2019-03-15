@@ -51,6 +51,7 @@ export class NewpostComponent implements OnInit {
     }
 
     this.creatNewPost();
+    this.backtolast();
   }
 
   backtolast(){

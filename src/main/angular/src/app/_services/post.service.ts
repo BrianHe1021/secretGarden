@@ -10,16 +10,16 @@ export class PostService {
   }
 
   creatPost(themeId:string, title:string, message:string, userId: string, postName:string){
-    return this.http.get<string>("http://localhost:8080/post/create?themeId="+themeId+"&title="+title+"&message="+
+    return this.http.get<string>("http://52.89.73.163:8080/post/create?themeId="+themeId+"&title="+title+"&message="+
       message+"&userId="+userId+"&postName="+postName);
   }
 
   getUserPosts(userId: string){
-    return this.http.get<Post[]>("http://localhost:8080/post/getUserPosts?userId="+userId);
+    return this.http.get<Post[]>("http://52.89.73.163:8080/post/getUserPosts?userId="+userId);
   }
 
   getPostByPostId(postId: string){
-    return this.http.get<Post>("http://localhost:8080/post/getPostById?postId="+postId);
+    return this.http.get<Post>("http://52.89.73.163:8080/post/getPostById?postId="+postId);
   }
 
   

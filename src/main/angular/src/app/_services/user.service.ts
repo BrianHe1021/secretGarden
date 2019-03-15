@@ -9,16 +9,16 @@ export class UserService {
   }
 
   signup(user: User) {
-    return this.http.post(`http://localhost:8080/user/register?userName=` + user.userName
+    return this.http.post(`http://52.89.73.163:8080/user/register?userName=` + user.userName
       + `&password=` + user.password + `&email=` + user.email, user);
   }
 
   login(email: string, password: string) {
-    return this.http.get<string>(`http://localhost:8080/user/login/getId?email=` + email + `&password=` + password);
+    return this.http.get<string>(`http://52.89.73.163:8080/user/login/getId?email=` + email + `&password=` + password);
   }
 
   getUerByuserid(userId: string) {
-    return this.http.get<User>(`http://localhost:8080/user/getUserById?userId=` + userId);
+    return this.http.get<User>(`http://52.89.73.163:8080/user/getUserById?userId=` + userId);
   }
 
   logout() {

@@ -6,7 +6,7 @@ ng build
 echo -e "build: \033[32;49;1m [DONE] \033[39;49;0m"
 echo -e "\033[44;37;5m upload Begin \033[0m"
 pwd
-scp -r -i '~/.ssh/he930810.pem' ./dist/angular ec2-user@52.89.73.163:~/upload/
+scp -r -i '~/.ssh/he930810.pem' ./dist/angular ec2-user@52.89.73.163:~/uploa
 echo -e "upload: \033[32;49;1m [DONE] \033[39;49;0m"
 
 

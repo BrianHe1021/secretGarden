@@ -6,6 +6,7 @@ import {Theme} from "../_models/theme";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Reply} from "../_models/reply";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-post',
@@ -22,7 +23,7 @@ export class PostComponent implements OnInit {
   submitResult: string;
 
   constructor(private postService: PostService, private themeService: ThemeService, private replyService: ReplyService,
-              private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder,) { }
+              private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder, private  location: Location) { }
 
   ngOnInit() {
     this.getPostById();
@@ -66,6 +67,7 @@ export class PostComponent implements OnInit {
     let userId = localStorage.getItem('currentUserID');
     this.replyService.creatReply(postId, this.NewReplyForm.value.content, "0", userId, this.NewReplyForm.value.replyName).pipe(first()).subscribe(result=>{
       this.submitResult = result;
+      window.location.reload();
     });
   }
 

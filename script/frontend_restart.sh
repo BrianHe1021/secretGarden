@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-ssh -i '~/.ssh/ErrandsPair.pem' ec2-user@18.191.103.130 "
+ssh -i '~/.ssh/he930810.pem' ec2-user@52.89.73.163 "
 pwd;
 mv secretgarden/angular secretgarden/angularbak;
 pwd;
